@@ -1,5 +1,171 @@
+<!DOCTYPE html>
 <html>
+  <head>
+    <title>The Page of Edward</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+		<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;800&display=swap" rel="stylesheet">
+  </head>
   <body>
-    <h1>Hello</h1>
-  <body>
-<html>
+		<div class="humanCheck" style="display:none;">
+			<div class="hcWindow">
+				<div class="hcTitle">Bot check - what is the page owner's name</div>
+				<form class="hcForm">
+					<div class="hcGrid" id="hcGrid">
+						<label class="hcRadio"><input type="radio" name="hcChoice">Mike</label>
+						<label class="hcRadio"><input type="radio" name="hcChoice">Joseph</label>
+						<label class="hcRadio"><input type="radio" name="hcChoice">Andrew</label>
+						<label class="hcRadio"><input type="radio" name="hcChoice">Rowan</label>
+						<label class="hcRadio"><input type="radio" name="hcChoice">Damian</label>
+						<label class="hcRadio"><input type="radio" name="hcChoice">Tom</label>
+						<label class="hcRadio"><input type="radio" name="hcChoice">James</label>
+						<label class="hcRadio"><input type="radio" name="hcChoice">Harry</label>
+						<label class="hcRadio"><input type="radio" name="hcChoice">Noah</label>
+						<label class="hcRadio"><input type="radio" name="hcChoice">Edward</label>
+						<label class="hcRadio"><input type="radio" name="hcChoice">Nathan</label>
+						<label class="hcRadio"><input type="radio" name="hcChoice">David</label>
+					</div>
+					<button type="button" onclick="checkHC" class="hcSubmit" id="hcSubmit">Let me in</button> 
+			</div>
+		</div>
+		<div class="header">
+			<div class="myName">The Page of Edward</div>
+			<div class="headerItem">Hello</div>
+			<div class="headerItem">Sup</div>
+			<div class="headerItem">Cool</div>
+		</div>
+  </body>
+</html>
+
+<script>
+
+	function docID(text) {
+		return document.getElementById(text);
+	}
+	
+	function checkHC() {
+		c = docID("hcGrid").children;
+		for(i=0; i <= (c.length-1); i++) {
+			if(c[i].checked) {
+				if (i==9) {
+					docID("hcSubmit").value = "Correct";
+					break;
+				}
+				else {
+					docID("hcSubmit").value = "Wrong";
+				}
+			}
+		}
+	}
+</script>
+  
+<style>
+  :root {
+    --lol: 1px;
+  }
+
+  html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+  }
+
+  div.humanCheck {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    opacity: 0.85;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  div.hcWindow {
+    height: calc(300px - 40px);
+    width: calc(500px - 40px);
+    background-color: rgb(40,40,40);
+    border-radius: 20px;
+    padding: 20px;
+  }
+
+  div.hcTitle {
+    color: white;
+    font-family: Manrope;
+    font-weight: 500;
+    font-size: 20px;
+
+    width: 100%;
+    margin: 0 0 40px 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  form.hcForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    color: white;
+    font-family: Manrope;
+    font-weight: 500;
+    font-size: 20px;
+  }
+
+  div.hcGrid {
+    display: grid;
+    width: 100%;
+    grid-template-columns: auto auto auto auto;
+    margin: 0 0 20px 0;
+  }
+
+  label.hcRadio {
+    margin: 0 0 16px 0;
+    text-align: center;
+  }
+
+  input[type=submit].hcSubmit {
+    color: white;
+    font-family: Manrope;
+    font-weight: 500;
+    font-size: 20px;
+
+
+    border: 2px solid white;
+    padding: 4px 12px;
+    border-radius: 8px;
+    background-color: rgb(30,70,100);
+  }
+
+  div.header {
+    display: flex;
+    width: calc(100% - 80px);
+    height: 80px;
+    padding: 0 40px;
+    background-color: black;
+    color: white;
+    justify-content: flex-start;
+    align-items: center;
+    font-family: Manrope;
+
+    font-weight: 800;
+  }
+
+  div.myName {
+    font-size: 36px;
+    margin: 0 80px 0 0;
+  }
+
+  div.headerItem {
+    font-size: calc(36px * 0.75);
+    color: rgb(160,160,160);
+    margin: 0 50px 0 0;
+  }
+</style>
