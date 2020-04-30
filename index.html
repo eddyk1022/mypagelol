@@ -24,9 +24,7 @@
 						<label class="hcRadio"><input type="radio" name="hcChoice" id="hc10">Nathan</label>
 						<label class="hcRadio"><input type="radio" name="hcChoice" id="hc11">David</label>
 					</div>
-          This thing doesnt work right now lol
 					<button type="button" onclick="checkHC()" class="hcSubmit" id="hcSubmit">Let me in</button>
-          <button type="button" onclick="closeHC()" class="hcSubmit" id="hcClose">Just close</button>
 			</div>
 		</div>
 		<div class="header">
@@ -39,11 +37,10 @@
 </html>
 
 <script>
-
 	function docID(text) {
 		return document.getElementById(text);
 	}
-	
+
 	function checkHC() {
 		for(i=0; i <= 11; i++) {
 			if(docID("hc"+i).checked) {
@@ -59,10 +56,6 @@
 			}
 		}
 	}
-
-  function closeHC() {
-    docID("hc").style.display = "none";
-  }
 </script>
 
 <style>
