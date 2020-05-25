@@ -28,10 +28,21 @@
 			</div>
 		</div>
 		<div class="header">
-			<div class="myName">The Page of Edward</div>
-			<div class="headerItem">Hello</div>
-			<div class="headerItem">Sup</div>
-			<div class="headerItem">Cool</div>
+			<a class="myName">The Page of Edward</a>
+			<a class="headerItem" id="dateDisplay" onmouseover="showDOB()" onmouseout="hideDOB()"></a>
+		</div>
+		<div class="main intro" id="mainDiv">
+			<div class="intro">
+				<div class="myTitle">
+					<span class="myNameIs">Hi, my name is</span><br>
+					<span class="edwardKim">Edward Kim</span>
+				</div>
+				<div class="pageSelection">
+					<a class="pageButton" href="photos.html">Photos</a>
+					<a class="pageButton" href="calc.html">Calc</a>
+					<a class="pageButton" href="https://roblox.com">Roblox</a>
+				</div>
+			</div>
 		</div>
   </body>
 </html>
@@ -44,10 +55,10 @@
 	function checkHC() {
 		for(i=0; i <= 11; i++) {
 			if(docID("hc"+i).checked) {
-        console.log("found a checked one");
 				if (i==9) {
 					docID("hcSubmit").value = "Correct";
-          docID("hc").style.display = "none";
+					docID("hc").style.display = "none";
+					docID("mainDiv").style.filter = "none";
 					break;
 				}
 				else {
@@ -56,116 +67,39 @@
 			}
 		}
 	}
+
+	function showDOB() {
+		docID("dateDisplay").innerHTML = "October 22, 2003";
+	}
+
+	function hideDOB() {
+		today = new Date();
+		d = today.getDate();
+		m = today.getMonth();
+		y = today.getFullYear();
+
+		switch(m) {
+			case 0: m="January"; break;
+			case 1: m="February"; break;
+			case 2: m="March"; break;
+			case 3: m="April"; break;
+			case 4: m="May"; break;
+			case 5: m="June"; break;
+			case 6: m="July"; break;
+			case 7: m="August"; break;
+			case 8: m="September"; break;
+			case 9: m="October"; break;
+			case 10: m="November"; break;
+			case 11: m="December"; break;
+		}
+
+		docID("dateDisplay").innerHTML = m + " " + d + ", " + y;
+	}
+
+	//    DELETE  LATER
+	docID("hcSubmit").value = "Correct";
+	docID("hc").style.display = "none";
+	docID("mainDiv").style.filter = "none";
+
+	hideDOB();
 </script>
-
-<style>
-		:root {
-		--lol: 1px;
-	}
-
-	html {
-		margin: 0;
-		padding: 0;
-		height: 100%;
-		width: 100%;
-	}
-
-	body {
-		margin: 0;
-		padding: 0;
-		height: 100%;
-		width: 100%;
-	}
-
-	div.humanCheck {
-		position: fixed;
-		width: 100%;
-		height: 100%;
-		opacity: 0.85;
-		background-color: black;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-	}
-
-	div.hcWindow {
-		height: calc(300px - 40px);
-		width: calc(500px - 40px);
-		background-color: rgb(40,40,40);
-		border-radius: 20px;
-		padding: 20px;
-	}
-
-	div.hcTitle {
-		color: white;
-		font-family: Manrope;
-		font-weight: 500;
-		font-size: 20px;
-
-		width: 100%;
-		margin: 0 0 40px 0;
-		display: flex;
-		justify-content: center;
-	}
-
-	form.hcForm {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		width: 100%;
-		color: white;
-		font-family: Manrope;
-		font-weight: 500;
-		font-size: 20px;
-	}
-
-	div.hcGrid {
-		display: grid;
-		width: 100%;
-		grid-template-columns: auto auto auto auto;
-		margin: 0 0 20px 0;
-	}
-
-	label.hcRadio {
-		margin: 0 0 16px 0;
-		text-align: center;
-	}
-
-	button.hcSubmit {
-		color: white;
-		font-family: Manrope;
-		font-weight: 500;
-		font-size: 20px;
-
-
-		border: 2px solid white;
-		padding: 4px 12px;
-		border-radius: 8px;
-		background-color: rgb(30,70,100);
-	}
-
-	div.header {
-		display: flex;
-		width: calc(100% - 80px);
-		height: 80px;
-		padding: 0 40px;
-		background-color: black;
-		color: white;
-		justify-content: flex-start;
-		align-items: center;
-		font-family: Manrope;
-		
-		font-weight: 800;
-	}
-
-	div.myName {
-		font-size: 36px;
-		margin: 0 80px 0 0;
-	}
-
-	div.headerItem {
-		font-size: calc(36px * 0.75);
-		color: rgb(160,160,160);
-		margin: 0 50px 0 0;
-	}
-</style>
